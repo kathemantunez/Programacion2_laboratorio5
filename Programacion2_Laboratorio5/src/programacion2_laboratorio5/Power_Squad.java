@@ -142,7 +142,7 @@ public class Power_Squad extends javax.swing.JFrame {
         jmi_escuadronheroe = new javax.swing.JMenuItem();
         heroes_menu = new javax.swing.JMenuItem();
         villanos_menu = new javax.swing.JMenuItem();
-        jMenu2 = new javax.swing.JMenu();
+        Simulacion = new javax.swing.JMenu();
 
         super_heroes.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -613,6 +613,11 @@ public class Power_Squad extends javax.swing.JFrame {
 
         javax.swing.tree.DefaultMutableTreeNode treeNode1 = new javax.swing.tree.DefaultMutableTreeNode("Power Squad");
         arbol.setModel(new javax.swing.tree.DefaultTreeModel(treeNode1));
+        arbol.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                arbolMouseClicked(evt);
+            }
+        });
         jScrollPane5.setViewportView(arbol);
 
         getContentPane().add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 310, 410, 180));
@@ -668,8 +673,13 @@ public class Power_Squad extends javax.swing.JFrame {
 
         jMenuBar1.add(menu);
 
-        jMenu2.setText("Ayuda");
-        jMenuBar1.add(jMenu2);
+        Simulacion.setText("Simulación");
+        Simulacion.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                SimulacionMouseClicked(evt);
+            }
+        });
+        jMenuBar1.add(Simulacion);
 
         setJMenuBar(jMenuBar1);
 
@@ -921,7 +931,7 @@ public class Power_Squad extends javax.swing.JFrame {
             modelo.addElement(new Villanos(nombre, poder, debilidad, escuadron, fuerza, ag_fisica, ag_mental));
            jl_villanos.setModel(modelo);
             JOptionPane.showMessageDialog(Villanos, "Se añadio exitosamente el villano");
-          
+         x2.setVillanos(villanos);
             
             //resetear 
              tf_nombre_vi.setText("");
@@ -943,7 +953,7 @@ public class Power_Squad extends javax.swing.JFrame {
     private void generar_arbolMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_generar_arbolMouseClicked
         // TODO add your handling code here:
         String escuadron_nombre="";
-        String nombre = null;
+        
         DefaultTreeModel modeloARBOL=(DefaultTreeModel)arbol.getModel();//capturar modelo seleccionado
             DefaultMutableTreeNode raiz =(DefaultMutableTreeNode)modeloARBOL.getRoot();
             raiz.removeAllChildren();
@@ -951,10 +961,12 @@ public class Power_Squad extends javax.swing.JFrame {
         for (int i = 0; i < escuadron_heroes.size(); i++) {
             int centinela=-1;//recorrido en anchura
             escuadron_nombre=escuadron_heroes.get(i).getNombre();
+//           nombre=escuadron_heroes.get(i).getVillanos();
             for (int j = 0; j < raiz.getChildCount(); j++) {
                 if(raiz.getChildAt(j).toString().equals(escuadron_nombre)){
 ////                    si ya existe le agrega la persona
                 DefaultMutableTreeNode p;
+                
                 p=new DefaultMutableTreeNode(new arbol(escuadron_nombre));
                 ((DefaultMutableTreeNode)raiz.getChildAt(j)).add(p);
                  centinela=1;
@@ -1035,7 +1047,7 @@ public class Power_Squad extends javax.swing.JFrame {
             modelo.addElement(new SuperHeroes(nombre, poder, debilidad, escuadron, fuerza, ag_fisica, ag_mental));
            jl_heroes.setModel(modelo);
             JOptionPane.showMessageDialog(super_heroes, "Se añadio exitosamente el heroe");
-          
+           x1.setVillanos(heroes);
             
             //resetear 
              tf_nombre_he.setText("");
@@ -1159,6 +1171,19 @@ public class Power_Squad extends javax.swing.JFrame {
         
     }//GEN-LAST:event_bt_modificar_viMouseClicked
 
+    private void SimulacionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SimulacionMouseClicked
+        // TODO add your handling code here:
+        
+        
+        
+    }//GEN-LAST:event_SimulacionMouseClicked
+
+    private void arbolMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_arbolMouseClicked
+        // TODO add your handling code here:
+        
+        
+    }//GEN-LAST:event_arbolMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -1197,6 +1222,7 @@ public class Power_Squad extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDialog Escuadron_heroe;
     private javax.swing.JDialog Escuadron_villano;
+    private javax.swing.JMenu Simulacion;
     private javax.swing.JDialog Villanos;
     private javax.swing.JTree arbol;
     private javax.swing.JButton bt_agregar_es_he;
@@ -1245,7 +1271,6 @@ public class Power_Squad extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu5;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JScrollPane jScrollPane1;
@@ -1291,6 +1316,8 @@ ArrayList<Escuadron_SuperHeroes> escuadron_heroes=new ArrayList();
 ArrayList<Escuadron_villanos> escuadron_villanos=new ArrayList();
 ArrayList<Villanos> villanos=new ArrayList();
 ArrayList<SuperHeroes> heroes=new ArrayList();
+Escuadron_SuperHeroes x1=new Escuadron_SuperHeroes();
+Escuadron_villanos x2 =new Escuadron_villanos();
 
 
 }
