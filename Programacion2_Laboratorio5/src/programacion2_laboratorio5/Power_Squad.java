@@ -131,6 +131,9 @@ public class Power_Squad extends javax.swing.JFrame {
         tf_tipo_es_he = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
         cb_heroes = new javax.swing.JComboBox<>();
+        p_menu = new javax.swing.JPopupMenu();
+        datos = new javax.swing.JMenuItem();
+        crear = new javax.swing.JMenuItem();
         jScrollPane5 = new javax.swing.JScrollPane();
         arbol = new javax.swing.JTree();
         generar_arbol = new javax.swing.JButton();
@@ -607,6 +610,12 @@ public class Power_Squad extends javax.swing.JFrame {
                     .addComponent(bt_agregar_es_he))
                 .addGap(41, 41, 41))
         );
+
+        datos.setText("ver datos");
+        p_menu.add(datos);
+
+        crear.setText("crear ");
+        p_menu.add(crear);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -1239,6 +1248,8 @@ public class Power_Squad extends javax.swing.JFrame {
     private javax.swing.JButton bt_modificar_vi;
     private javax.swing.JComboBox<String> cb_heroes;
     private javax.swing.JComboBox<String> cb_villanos;
+    private javax.swing.JMenuItem crear;
+    private javax.swing.JMenuItem datos;
     private javax.swing.JButton generar_arbol;
     private javax.swing.JMenuItem heroes_menu;
     private javax.swing.JLabel jLabel1;
@@ -1289,6 +1300,7 @@ public class Power_Squad extends javax.swing.JFrame {
     private javax.swing.JMenuItem jmi_escuadron_villano;
     private javax.swing.JMenuItem jmi_escuadronheroe;
     private javax.swing.JMenu menu;
+    private javax.swing.JPopupMenu p_menu;
     private javax.swing.JSpinner sp_fisica_he;
     private javax.swing.JSpinner sp_fisica_vi;
     private javax.swing.JSpinner sp_fuerza_he;
