@@ -31,6 +31,14 @@ public class SuperHeroes {
         this.agilidad_mental = agilidad_mental;
     }
 
+    public Escuadron_SuperHeroes getEscuadron() {
+        return escuadron;
+    }
+
+    public void setEscuadron(Escuadron_SuperHeroes escuadron) {
+        this.escuadron = escuadron;
+    }
+
     
 
     public String getNombre() {
