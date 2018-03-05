@@ -331,10 +331,11 @@ public class Power_Squad extends javax.swing.JFrame {
                             .addComponent(jLabel23))
                         .addGap(68, 68, 68))
                     .addGroup(VillanosLayout.createSequentialGroup()
-                        .addGroup(VillanosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel24)
-                            .addComponent(tf_poder_vi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(tf_nombre_vi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(VillanosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(tf_nombre_vi, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(VillanosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jLabel24)
+                                .addComponent(tf_poder_vi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(tf_debilidad_vi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(38, 38, 38)
@@ -731,7 +732,6 @@ public class Power_Squad extends javax.swing.JFrame {
             }else{
                  lider=(String) cb_heroes.getSelectedItem();
             }
-            
             //tring nombre, String localidad, String lider, String lema, String tipo_Escuadron
             
                escuadron_heroes.add(new Escuadron_SuperHeroes(nombre, localidad, lider, lema, tipo));
@@ -756,12 +756,13 @@ public class Power_Squad extends javax.swing.JFrame {
             modelo2.addElement(new Escuadron_SuperHeroes(nombre, localidad, lider, lema, tipo));
            jl_xheroes.setModel(modelo2);
             JOptionPane.showMessageDialog(Escuadron_heroe, "Se añadio exitosamente el escuadron");
-          
+           System.out.println("nombre"+nombre);
             
             //resetear 
         tf_nombre_es_he.setText("");
         tf_localidad_es_he.setText("");
         tf_lema_es_he.setText("");
+        
         } catch (Exception e) {
              e.printStackTrace();
             JOptionPane.showMessageDialog(Escuadron_heroe, "ocurrio un error y no se guardaron los datos");
